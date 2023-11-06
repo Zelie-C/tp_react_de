@@ -6,14 +6,17 @@ function App() {
   
 const [newValue, setNewValue] = useState(1)
 
-  const handleRoll = (dieValue: number) => {
-    useCallback(() => {
+  const handleRoll = useCallback(
+    (dieValue: number) => {
       setNewValue(dieValue)
-    }, [newValue])
-  }
+    }, [newValue]
+  )
 
   return (
-    <Die onRoll={handleRoll}/>
+    <div>
+      <Die onRoll={handleRoll}/>
+      <p>{newValue}</p>
+    </div>
   )
 }
 

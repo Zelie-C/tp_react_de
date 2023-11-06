@@ -1,18 +1,18 @@
 import { useCallback, useState } from "react"
 
 
-const Die = (props: {value: number}) => {
+const Die = (props: {onRoll: (newVal: number) => void}) => {
 
-    const [value, setValue] = useState(0);
+    const [value, setValue] = useState(Math.floor(Math.random() * 7));
 
     const handleClick = useCallback(() => {
-            setValue(Math.floor(Math.random() * 7))
-        }, [value])
+        const rand = Math.floor(Math.random() * 7)
+        props.onRoll(rand)
+        setValue(rand)
+    }, [])
 
     return (
-    
-        <div style={{color: pink}} onClick={handleClick} onRoll={props.value}>{value}</div>
-
+        <div onClick={handleClick}>{value}</div>
     )
 }
 
