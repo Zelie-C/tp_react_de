@@ -11,7 +11,7 @@ const Die = (props: {value: number}) => {
 
     return (
     
-        <div onClick={handleClick} onRoll={props.value}>{value}</div>
+        <div style={{color: pink}} onClick={handleClick} onRoll={props.value}>{value}</div>
 
     )
 }
